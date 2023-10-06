@@ -1,7 +1,7 @@
-import { IGenerationValidation } from "../../interfaces/IGenerationValidation";
+import { IBaseGenerationValidation } from "../../interfaces/IBaseGenerationValidation";
 
 /** Brazilian CNPJ generation and validation service */
-export class CnpjService implements IGenerationValidation {
+export class CnpjService implements IBaseGenerationValidation {
     readonly weights = [[5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2], [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]];
     toGenerate(withMask: boolean): string {
         let value = Array.from({ length: 12 }, () => Math.floor(Math.random() * 10));

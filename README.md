@@ -1,2 +1,2 @@
 # ultra-api
-API para devs
+API for devs

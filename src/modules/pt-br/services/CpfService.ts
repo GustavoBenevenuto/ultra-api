@@ -1,7 +1,7 @@
-import { IGenerationValidation } from "../../interfaces/IGenerationValidation";
+import { IBaseGenerationValidation } from "../../interfaces/IBaseGenerationValidation";
 
 /** Brazilian CPF generation and validation service */
-export class CpfService implements IGenerationValidation {
+export class CpfService implements IBaseGenerationValidation {
     toGenerate(withMask: boolean): string {
         let cpf = '';
         for (let i = 0; i < 9; i++) {

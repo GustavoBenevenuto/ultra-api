@@ -26,23 +26,21 @@ app.use((erro: AppError | ZodError, request: Request, response: Response, next: 
     }
 
     if (erro instanceof ZodError) {
-        return response.status(400).send({ mensagem: 'Erro de validação: O corpo da requisição está incorreto', issues: erro.format() })
+        return response.status(400).send({ mensagem: 'Error: Request data is incorrect', issues: erro.format() })
     }
 
-    console.error('💣💣 ERRO 💣💣');
-    console.error(erro);
+    console.error({ erro });
 
     return response.status(500).json({
-        status: 'Erro',
-        message: 'Erro interno no serviror',
+        status: 'Error',
+        message: 'Internal server error',
     })
 });
 
 app.listen(process.env.PORT || 3333, () => {
     console.log(' ');
     console.log(' ---------------------------- ');
-    console.log('| Servidor rodando...        |');
-    console.log('| http://localhost:3333/     |');
+    console.log('| Run service...             |');
     console.log(' ---------------------------- ');
     console.log(' ');
 });

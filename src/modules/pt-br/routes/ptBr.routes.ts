@@ -1,10 +1,9 @@
 import { Router } from 'express';
-import { CpfController } from '../controllers/CpfController';
+import { cpfRouter } from './cpf.routes';
+import { cnpjRouter } from './cnpj.routes';
 
 export const ptBrRouter = Router();
 
-const cpfController = new CpfController()
+ptBrRouter.use('/cpf', cpfRouter);
 
-ptBrRouter.get('/generate', cpfController.toGenerate);
-
-ptBrRouter.get('/validate', cpfController.validate);
+ptBrRouter.use('/cnpj', cnpjRouter);

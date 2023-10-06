@@ -5,7 +5,7 @@ import { z } from "zod";
 import { CnpjService } from "../services/CnpjService";
 import { stringToBoolean } from "../../../utils/stringToBoolean";
 
-export class CpfController implements IControllerBase {
+export class CnpjController implements IControllerBase {
     toGenerate(request: Request, response: Response): Response {
         const querySchema = z.object({
             withMask: z.string().optional()

@@ -3,7 +3,7 @@ import { ParsedQs } from "qs";
 import { IControllerBase } from "../../interfaces/IControllerBase";
 import { z } from "zod";
 import { stringToBoolean } from "../../../utils/stringToBoolean";
-import { CnpjService } from "ultra-dev";
+import { CpfService } from "ultra-dev";
 
 export class CpfController implements IControllerBase {
     toGenerate(request: Request, response: Response): Response {
@@ -12,9 +12,9 @@ export class CpfController implements IControllerBase {
         })
         const { withMask } = querySchema.parse(request.query)
 
-        const cnpjService = new CnpjService()
+        const cpfService = new CpfService()
 
-        const value = cnpjService.toGenerate(stringToBoolean(withMask))
+        const value = cpfService.toGenerate(stringToBoolean(withMask))
 
         return response.json({ value });
     }
@@ -25,9 +25,9 @@ export class CpfController implements IControllerBase {
         })
         const { value } = querySchema.parse(request.query)
 
-        const cnpjService = new CnpjService()
+        const cpfService = new CpfService()
 
-        const isValid = cnpjService.validate(value)
+        const isValid = cpfService.validate(value)
 
         return response.json({ isValid });
     }

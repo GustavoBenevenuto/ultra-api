@@ -12,9 +12,7 @@ export class CnpjController implements IControllerBase {
         })
         const { withMask } = querySchema.parse(request.query)
 
-        const cnpjService = new CnpjService()
-
-        const value = cnpjService.toGenerate(stringToBoolean(withMask))
+        const value = CnpjService.toGenerate(stringToBoolean(withMask))
 
         return response.json({ value });
     }
@@ -25,9 +23,7 @@ export class CnpjController implements IControllerBase {
         })
         const { value } = querySchema.parse(request.query)
 
-        const cnpjService = new CnpjService()
-
-        const isValid = cnpjService.validate(value)
+        const isValid = CnpjService.validate(value)
 
         return response.json({ isValid });
     }

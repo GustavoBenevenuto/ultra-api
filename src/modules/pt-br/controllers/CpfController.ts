@@ -12,9 +12,7 @@ export class CpfController implements IControllerBase {
         })
         const { withMask } = querySchema.parse(request.query)
 
-        const cpfService = new CpfService()
-
-        const value = cpfService.toGenerate(stringToBoolean(withMask))
+        const value = CpfService.toGenerate(stringToBoolean(withMask))
 
         return response.json({ value });
     }
@@ -25,9 +23,7 @@ export class CpfController implements IControllerBase {
         })
         const { value } = querySchema.parse(request.query)
 
-        const cpfService = new CpfService()
-
-        const isValid = cpfService.validate(value)
+        const isValid = CpfService.validate(value)
 
         return response.json({ isValid });
     }

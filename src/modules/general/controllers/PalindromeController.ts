@@ -11,9 +11,7 @@ export class PalindromeController implements IControllerBase {
         })
         const { withMask } = querySchema.parse(request.query)
 
-        const palindromeService = new PalindromeService()
-
-        const value = palindromeService.toGenerate(stringToBoolean(withMask))
+        const value = PalindromeService.toGenerate(stringToBoolean(withMask))
 
         return response.json({ value });
     }
@@ -24,9 +22,7 @@ export class PalindromeController implements IControllerBase {
         })
         const { value } = querySchema.parse(request.query)
 
-        const palindromeService = new PalindromeService()
-
-        const isValid = palindromeService.validate(value)
+        const isValid = PalindromeService.validate(value)
 
         return response.json({ isValid });
     }

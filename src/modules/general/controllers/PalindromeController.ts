@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { IControllerBase } from "../../interfaces/IControllerBase";
 import { z } from "zod";
-import { PalindromeService } from "../services/PalindromeService";
 import { stringToBoolean } from "../../../utils/stringToBoolean";
+import { PalindromeService } from 'ultra-dev';
 
 export class PalindromeController implements IControllerBase {
     toGenerate(request: Request, response: Response): Response {

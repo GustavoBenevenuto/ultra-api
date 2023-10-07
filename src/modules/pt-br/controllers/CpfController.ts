@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import { ParsedQs } from "qs";
 import { IControllerBase } from "../../interfaces/IControllerBase";
 import { z } from "zod";
-import { CnpjService } from "../services/CnpjService";
 import { stringToBoolean } from "../../../utils/stringToBoolean";
+import { CnpjService } from "ultra-dev";
 
 export class CpfController implements IControllerBase {
     toGenerate(request: Request, response: Response): Response {
